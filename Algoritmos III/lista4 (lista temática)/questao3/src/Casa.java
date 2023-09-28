@@ -1,22 +1,22 @@
 import java.util.ArrayList;
 
-public class Casa 
+public class Casa
 {
     private String nome;
-    private ArrayList<Estudante> estudantes = new ArrayList<>();
-    private int pontos;
-    
+    private ArrayList<Estudante> estudantes;
+    private int pontuacao;
+
     public Casa(String nome)
     {
         this.nome = nome;
-        this.pontos = 0;
     }
 
     public void atribuirEstudante(Estudante estudante)
     {
-        this.estudantes.add(estudante);
-        estudante.setCasaEstudante(this.getNome()); 
+        estudantes.add(estudante);
+        estudante.setCasaEstudante(this.getNome());
     }
+
     public ArrayList<Estudante> getEstudantes() 
     {
         return estudantes;
@@ -27,12 +27,13 @@ public class Casa
         return nome;
     }
 
-    public void addPontos(int pontos) 
+    public int getPontuacao() 
     {
-        this.pontos = this.pontos + pontos;
+        return pontuacao;
     }
-    public int getPontos() 
+
+    public void setPontuacao(int pontuacao) 
     {
-        return pontos;
+        this.pontuacao = pontuacao;
     }
 }

@@ -1,29 +1,21 @@
-public class Comportamento 
+public class Comportamento
 {
-    private String tipo;
-    private int pontos;
+    private String nome;
+    private int pontuacao;
 
-    public Comportamento(String tipo, int pontos)
+    public Comportamento(String nome, int pontuacao)
     {
-        this.tipo = tipo;
-        this.pontos = pontos;
-    }
-
-    public void setPontos(int pontos) 
-    {
-        this.pontos = pontos;
-    }
-    public int getPontos() 
-    {
-        return pontos;
+        this.nome = nome;
+        this.pontuacao = pontuacao;
     }
 
-    public void setTipo(String tipo) 
+    public String getNome() 
     {
-        this.tipo = tipo;
+        return nome;
     }
-    public String getTipo() 
+
+    public int getPontuacao() 
     {
-        return tipo;
+        return pontuacao;
     }
 }
