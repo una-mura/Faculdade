@@ -4,8 +4,8 @@
 typedef struct node
 {
     int info;
-    struct node *esq;
-    struct node *dir;
+    struct node *esquerdo;
+    struct node *direito;
 } node;
 
 void varredura(node *raiz);
@@ -22,15 +22,17 @@ void varredura(node *raiz)
 {
     if (raiz != NULL)
     {
-        
+        varredura(raiz -> esquerdo);
+        printf("%d\n", raiz -> info);
+        varredura(raiz -> direito);
     }   
 }
 
 void limpeza(node **raiz)
 {
     if (*raiz != NULL) {
-        limpeza(&((*raiz) -> esq));
-        limpeza(&((*raiz) -> dir));
+        limpeza(&((*raiz) -> esquerdo));
+        limpeza(&((*raiz) -> direito));
         free(raiz);
     }
 }
