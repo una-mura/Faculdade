@@ -8,31 +8,92 @@ typedef struct node
     struct node *direito;
 } node;
 
-void varredura(node *raiz);
-void limpeza(node **raiz);
+node *inicializar(node *raiz);
+node *inserir(node *raiz, int valor);
+
+void limpar(node **raiz);
+void mostrar(node *raiz);
 
 int main()
 {
+    node *raiz = NULL;
+
     
 
     return 0;
 }
 
-void varredura(node *raiz)
+node *inicializar(node *raiz)
+{
+    raiz = (node *) malloc(sizeof(node));
+    raiz -> direito = NULL;
+    raiz -> esquerdo = NULL;
+
+    return raiz;
+}
+
+node *inserir(node *raiz, int valor)
 {
     if (raiz != NULL)
     {
-        varredura(raiz -> esquerdo);
-        printf("%d\n", raiz -> info);
-        varredura(raiz -> direito);
-    }   
+        if (raiz -> info > valor)
+        {
+            if (raiz -> esquerdo == NULL)
+            {
+                inicializar(raiz -> esquerdo);
+                raiz -> esquerdo -> info = valor;
+            }
+
+            else
+            {
+                inserir(raiz -> esquerdo, valor);
+            }
+        }
+
+        else if (raiz -> info < valor)
+        {
+            if (raiz -> direito == NULL)
+            {
+                inicializar(raiz -> direito);
+                raiz -> direito -> info = valor;
+            }
+
+            else
+            {
+                inserir(raiz -> direito, valor);
+            }
+        }
+
+        else
+        {
+            printf("O número já existe\n");
+        }
+    }
+
+    else
+    {
+        raiz = inicializar(raiz);
+        raiz -> info = valor;
+    }
+
+    return raiz;
 }
 
-void limpeza(node **raiz)
+void limpar(node **raiz)
 {
     if (*raiz != NULL) {
-        limpeza(&((*raiz) -> esquerdo));
-        limpeza(&((*raiz) -> direito));
+        limpar(&((*raiz) -> esquerdo));
+        limpar(&((*raiz) -> direito));
         free(raiz);
+    }
+}
+
+void mostrar(node *raiz)
+{
+    if (raiz != NULL)
+    {
+        mostrar(raiz -> esquerdo);
+        printf("%d\n", raiz -> info);
+        mostrar(raiz -> direito);
     }
 }

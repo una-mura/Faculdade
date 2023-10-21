@@ -9,7 +9,7 @@ typedef struct node
     struct node *anterior;
 } node;
 
-void ordenaLista(node **cabeca);
+void ordenaLista(node **cabeca); //função pedida pelo exercício
 void insereElemento(node **cabeca, int elemento);
 void destroiLista(node **cabeca);
 void mostraLista(node *cabeca);

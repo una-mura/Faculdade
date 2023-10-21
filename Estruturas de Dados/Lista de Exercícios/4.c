@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-/*
-Escreva um algoritmo que recebe uma lista duplamente encadeada e inverte essa lista,
-alterando somente os campos dos ponteiros e sem usar estruturas auxiliares.
-*/
-
 typedef struct node
 {
     int info;

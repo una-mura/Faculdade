@@ -9,7 +9,7 @@ typedef struct node
     struct node *anterior;
 } node;
 
-void encontraElemento(node *cabeca, int elemento);
+void encontraElemento(node *cabeca, int elemento); //função pedida pelo exercício
 void insereElemento(node **cabeca, int elemento);
 void destroiLista(node **cabeca);
 void mostraLista(node *cabeca);

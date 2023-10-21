@@ -9,7 +9,7 @@ typedef struct node
     struct node *anterior;
 } node;
 
-void concatenaListas(node **lista1, node **lista2);
+void concatenaListas(node **lista1, node **lista2); //função pedida pelo exercício
 void insereElemento(node **cabeca, int elemento);
 void destroiLista(node **cabeca);
 void mostraLista(node *cabeca);
